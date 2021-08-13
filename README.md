@@ -18,8 +18,6 @@ Webpage: [What is Affecting the U.S. Housing Market?](https://impacts-on-us-hous
 
 Enjoy!
 
-# Data Sources & Datasets
-
 ## Data Sources & Datasets
 
 [Federal Reserve Economic Data (FRED) Housing](https://fred.stlouisfed.org/categories/97)
