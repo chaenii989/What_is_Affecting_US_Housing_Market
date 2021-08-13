@@ -159,7 +159,7 @@ function RadialChart() {
 }
 RadialChart();
 
-//New Housing Permits & Housing Units Constructed Spline
+//Construction Permits Spline
 function PermitsSpline() {
 
   const url = "/api/home_units";
@@ -167,53 +167,64 @@ function PermitsSpline() {
       console.log("Home Units API", d);
       var date = d[0].Date;
       console.log("Date", date);
-      var units_constructed = d[0].Home_Unites_Contructed;
-      console.log("Home Units Array", units_constructed);
+      var new_permits_thousands = d[0].new_permits_thousands;
+      console.log("new_permits_thousands", new_permits_thousands);
+      var units_not_started_thousands = d[0].units_not_started_thousands;
+      console.log("units_not_started_thousands", units_not_started_thousands);
+      var units_started_thousands = d[0].units_started_thousands;
+      console.log("units_started_thousands", units_started_thousands);
+      var units_under_construction_thousands = d[0].units_under_construction_thousands;
+      console.log("units_under_construction_thousands", units_under_construction_thousands);
+      var units_constructed_thousands = d[0].units_constructed_thousands;
+      console.log("units_constructed_thousands", units_constructed_thousands);
 
-      const apiurl = "/api/house_permits";
-      d3.json(apiurl).then(function (d) {
-          console.log("House Permits API", d);
-          var new_permits = d[0].New_Home_Permits;
-          console.log("House Permits Array", new_permits);
-
-          var options = {
-              series: [{
-                  name: 'New Housing Permits',
-                  data: new_permits
-              }, {
-                  name: 'Housing Units Constructed',
-                  data: units_constructed
-              }],
-              chart: {
-                  height: 400,
-                  type: 'area'
-              },
-              dataLabels: {
-                  enabled: false
-              },
-              stroke: {
-                  curve: 'smooth'
-              },
+      var options = {
+          series: [{
+              name: 'New Housing Permits',
+              data: new_permits_thousands
+          }, {
+              name: 'Housing Units Not Started',
+              data: units_not_started_thousands
+          }, {
+              name: 'Housing Units Started',
+              data: units_started_thousands
+          }, {
+              name: 'Housing Units Under Construction',
+              data: units_under_construction_thousands
+          }, {
+              name: 'Housing Units Constructed',
+              data: units_constructed_thousands
+          }],
+          chart: {
+              height: 400,
+              type: 'area'
+          },
+          dataLabels: {
+              enabled: false
+          },
+          stroke: {
+              curve: 'smooth'
+          },
+          title: {
+              text: 'New Housing Permits & Housing Unit Construction'
+          },
+          xaxis: {
+              categories: date,
               title: {
-                  text: 'New Housing Permits & Housing Units Constructed'
-              },
-              xaxis: {
-                  categories: date,
-                  title: {
-                      text: 'Date'
-                  }
-              },
-              yaxis: {
-                  title: {
-                      text: 'Units in Thousands'
-                  }
+                  text: 'Date'
               }
-          };
+          },
+          yaxis: {
+              title: {
+                  text: 'Units in Thousands'
+              }
+          }
+      };
 
-          var chart = new ApexCharts(document.querySelector("#permitsConstructed"), options);
+      var chart = new ApexCharts(document.querySelector("#permitsConstructed"), options);
 
-          chart.render();
-      });
+      chart.render();
   });
-}
+};
+
 PermitsSpline();
