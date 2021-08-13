@@ -42,14 +42,11 @@ Base.prepare(engine, reflect=True)
 # Save references to each table
 Lumber_steel = Base.classes.lumber_steel
 Average_home_price = Base.classes.average_home_price
-Homeownership_rates= Base.classes.homeownership_rate
-Home_units = Base.classes.home_units
-Monthly_house_supply= Base.classes.monthly_house_supply
-House_permits = Base.classes.house_permits
 New_2020= Base.classes.new_2020
 New_2021= Base.classes.new_2021
-
-
+Homeownership_rates= Base.classes.homeownership_rate
+Monthly_house_supply= Base.classes.monthly_house_supply
+Home_units = Base.classes.home_units
 
 
 
@@ -140,16 +137,24 @@ def o_rates():
 def h_unit():
     # Create our session (link) from Python to the DB
     session = Session(engine)
-    results = session.query(Home_units.date, Home_units.units_constructed_thousands).all()
+    results = session.query(Home_units.date, Home_units.new_permits_thousands, Home_units.units_not_started_thousands, Home_units.units_started_thousands, 
+                            Home_units.units_under_construction_thousands, Home_units.units_constructed_thousands).all()
 
     date = [result[0] for result in results]
-    units_contructed = [result[1] for result in results]
-    
+    new_permits_thousands = [result[1] for result in results]
+    units_not_started_thousands = [result[2] for result in results]
+    units_started_thousands = [result[3] for result in results]
+    units_under_construction_thousands = [result[4] for result in results]
+    units_constructed_thousands = [result[5] for result in results]
 
     unit_homes = [{
         
         "Date": date,
-        "Home_Unites_Contructed": units_contructed,
+        "new_permits_thousands": new_permits_thousands,
+        "units_not_started_thousands": units_not_started_thousands,
+        "units_started_thousands": units_started_thousands,
+        "units_under_construction_thousands": units_under_construction_thousands,
+        "units_constructed_thousands": units_constructed_thousands,
         "marker": {
             "size": 15,
             "line": {
@@ -160,31 +165,6 @@ def h_unit():
     }]
 
     return jsonify(unit_homes)
-
-@app.route("/api/house_permits")
-def permited():
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
-    results = session.query(House_permits.date, House_permits.new_permits_thousands).all()
-
-    date = [result[0] for result in results]
-    new_permits = [result[1] for result in results]
-    
-
-    permits = [{
-        
-        "Date": date,
-        "New_Home_Permits": new_permits,
-        "marker": {
-            "size": 15,
-            "line": {
-                "color": "rgb(8,8,8)",
-                "width": 1
-            },
-        }
-    }]
-    session.close()
-    return jsonify(permits)
 
 @app.route("/api/monthly_house_supply")
 def supply():
