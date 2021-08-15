@@ -8,38 +8,8 @@ from sqlalchemy import create_engine
 # Some of this might be best in a constants.py file and read here and in app.py
 DATA_TABLES = [
     {
-        'SOURCE_FILE': 'etl/lumber_steel_percent_change.csv',
-        'TABLE_NAME': 'lumber_steel',
-        'INDEX_COLUMN': 'date',
-     },
-    {
-        'SOURCE_FILE': 'etl/average_home_price.csv',
-        'TABLE_NAME': 'average_home_price',
-        'INDEX_COLUMN': 'date',
-     },
-     {
-        'SOURCE_FILE': 'etl/new_2020.csv',
-        'TABLE_NAME': 'new_2020',
-        'INDEX_COLUMN': 'date',
-     }, 
-      {
-        'SOURCE_FILE': 'etl/new_2021.csv',
-        'TABLE_NAME': 'new_2021',
-        'INDEX_COLUMN': 'date',
-     },
-    {
-        'SOURCE_FILE': 'etl/homeownership_rate.csv',
-        'TABLE_NAME': 'homeownership_rate',
-        'INDEX_COLUMN': 'date',
-     },
-    {
-        'SOURCE_FILE': 'etl/monthly_house_supply.csv',
-        'TABLE_NAME': 'monthly_house_supply',
-        'INDEX_COLUMN': 'date',
-     },
-    {
-        'SOURCE_FILE': 'etl/construction_permit.csv',
-        'TABLE_NAME': 'home_units',
+        'SOURCE_FILE': 'etl/lhousing_combined_data.csv',
+        'TABLE_NAME': 'housing_data',
         'INDEX_COLUMN': 'date',
      }
 ]
