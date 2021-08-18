@@ -42,7 +42,7 @@ U.S. Census Bureau, Homeownership Rate in the United States [RSAHORUSQ156S], ret
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Release: New Residential Sales  
 - Units: Months' Supply, Seasonally Adjusted
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Notes:
 The months' supply is the ratio of houses for sale to houses sold. This statistic provides an indication of the size of the for-sale inventory in relation to the number of houses currently being sold. The months' supply indicates how long the current for-sale inventory would last given the current sales rate if no additional new houses were built.
@@ -50,13 +50,13 @@ The months' supply is the ratio of houses for sale to houses sold. This statisti
 Citation:
 U.S. Census Bureau and U.S. Department of Housing and Urban Development, Monthly Supply of Houses in the United States [MSACSR], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/MSACSR>, August 12, 2021.
 
-### New Privately-Owned Housing Units Authorized in Permit-Issuing Places: Total Units (PERMITNSA)
+### New Privately-Owned Housing Units Authorized in Permit-Issuing Places: Total Units (PERMIT)
 
-- new_housing_permits_PERMITNSA.csv
+- new_housing_permits_PERMIT.csv
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Release: New Residential Construction  
 - Units: Thousands of Units, Seasonally Adjusted Annual Rate
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Notes:
 Starting with the 2005-02-16 release, the series reflects an increase in the universe of permit-issuing places from 19,000 to 20,000 places.
@@ -70,7 +70,7 @@ U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Pri
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Release: New Residential Construction
 - Units: Thousands of Units, Seasonally Adjusted
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Citation:
 U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Privately-Owned Housing Units Authorized but Not Started: Total Units [AUTHNOTTSA], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/AUTHNOTTSA>, August 13, 2021.
@@ -80,7 +80,7 @@ U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Pri
 - authorized_started_HOUST.csv
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Units: Thousands of Units, Seasonally Adjusted Annual Rate
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Notes:
 As provided by the Census, start occurs when excavation begins for the footings or foundation of a building. All housing units in a multifamily building are defined as being started when this excavation begins. Beginning with data for September 1992, estimates of housing starts include units in structures being totally rebuilt on an existing foundation.
@@ -93,7 +93,7 @@ U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Pri
 - under_counstruction_UNDCONTSA.csv
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Units: Thousands of Units, Seasonally Adjusted
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Citation:
 U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Privately-Owned Housing Units Under Construction: Total Units [UNDCONTSA], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/UNDCONTSA>, August 13, 2021.
@@ -104,7 +104,7 @@ U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Pri
 - Source: U.S. Census Bureau, U.S. Department of Housing and Urban Development
 - Release: New Residential Construction
 - Units: Thousands of Units, Seasonally Adjusted Annual Rate
-- Frequency: Monthly
+- Frequency: Quarterly, Average
 
 Citation:
 U.S. Census Bureau and U.S. Department of Housing and Urban Development, New Privately-Owned Housing Units Completed: Total Units [COMPUTSA], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/COMPUTSA>, August 12, 2021.
@@ -126,7 +126,7 @@ U.S. Census Bureau and U.S. Department of Housing and Urban Development, Median 
 - Source: U.S. Bureau of Labor Statistics  
 - Release: Producer Price Index  
 - Units: Index 1982=100, Not Seasonally Adjusted
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Citation:
 U.S. Bureau of Labor Statistics, Producer Price Index by Commodity: Lumber and Wood Products: Softwood Lumber [WPU0811], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/WPU0811>, August 13, 2021.
@@ -137,17 +137,27 @@ U.S. Bureau of Labor Statistics, Producer Price Index by Commodity: Lumber and W
 - Source: U.S. Bureau of Labor Statistics  
 - Release: Producer Price Index  
 - Units: Index 1982=100, Not Seasonally Adjusted
-- Frequency: Quarterly, End of Period
+- Frequency: Quarterly, Average
 
 Citation:
 U.S. Bureau of Labor Statistics, Producer Price Index by Commodity: Metals and Metal Products: Iron and Steel [WPU101], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/WPU101>, August 13, 2021.
 
-### Daily Treasury Yield Curve Rates
+### 30-Year Fixed Rate Mortgage Average in the United States (MORTGAGE30US)
 
-- Source: U.S. Department of the Treasury
+- MORTGAGE30US.csv
+- Source: Freddie Mac  
+- Release:  Primary Mortgage Market Survey  
+- Units: Percent, Not Seasonally Adjusted
+- Frequency: Quarterly, Average
+
+Notes:
+Data is provided "as is," by Freddie Mac® with no warranties of any kind, express or implied, including, but not limited to, warranties of accuracy or implied warranties of merchantability or fitness for a particular purpose. Use of the data is at the user's sole risk. In no event will Freddie Mac be liable for any damages arising out of or related to the data, including, but not limited to direct, indirect, incidental, special, consequential, or punitive damages, whether under a contract, tort, or any other theory of liability, even if Freddie Mac is aware of the possibility of such damages.
+
+Copyright, 2016, Freddie Mac. Reprinted with permission.
 
 Citation:
-U.S. Department of the Treasury, Daily Treasury Yield Curve Rates, retrieved from U.S. Department of the Treasury, Resource Center;<https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=yieldYear&year=2020>, July 30, 2021.
+Freddie Mac, 30-Year Fixed Rate Mortgage Average in the United States [MORTGAGE30US], retrieved from FRED, Federal Reserve Bank of St. Louis; <https://fred.stlouisfed.org/series/MORTGAGE30US>, August 13, 2021.
 
 ## Contributors
+
 Amanda Pesch, Chloe Lee, David W. Mueller, John Burke, Jordan Cizmja, Rna Babikar.
