@@ -3,3 +3,65 @@
     border-radius: 30px;
     border-color: black;
   }
+
+/*  Navigation bar */
+
+nav {
+  height: 60px;
+  background-color: #2271b1;
+  position: absolute;
+  z-index: 1;
+}
+
+.navbar-brand {
+  color: white;
+  background-color: #2271b1;
+  font-weight: bold;
+  margin-left: 25px;
+  padding-left: 10px;
+  padding-right: 10px;  
+}
+
+
+/* Content */  
+.box {
+  margin-top: 30px; 
+  margin-bottom: 30px; 
+  padding: 10px 20px 10px; 
+  color:black;
+  background-color: white; 
+}
+
+/* Title Class  */
+.h3 {
+  color: #0BADA6;
+  font-weight: bolder; 
+}
+
+.display{
+  color: #0BADA6;  
+  font-weight: bolder; 
+  padding-top: 25px; 
+}
+
+.title{
+  color: #0BADA6;  
+  font-weight: bolder; 
+  padding-top: 25px; 
+  text-align: center
+  
+} 
+
+
+/* Media Queries */
+@media(max-width: 992px){
+.navbar-expand-lg{
+background-color:white;
+}
+.navbar div{
+    margin: inherit; 
+    background-color: white;  
+}
+
+}
+
