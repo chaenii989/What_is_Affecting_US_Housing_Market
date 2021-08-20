@@ -1,51 +1,18 @@
-// Home price plot
-
-function buildlinePlot() {
-
-  const url = "/api/average_home_price";
-  d3.json(url).then(function(myData) {
-   console.log(myData);
-    
-    var date = myData[0].Date;
-    
-    var price = myData[0].Average_Home_Price;
-   
-
-    var trace1 = {
-    x: date,
-    y: price,
-    type: "scatter"
-    
-    }
-    var data = [trace1];
-    
-
-    var layout = {
-        title: "Average Home Price", 
-    }
-    
-
-    Plotly.newPlot("line", data, layout);
-})
-};
-
-buildlinePlot();
-
 // Home Construction Materials plot
 
 function buildCommoditiesPlot() {
 
-    const url = "/api/lumber_steel";
+    const url = "/api/housing_data";
     d3.json(url).then(function(myData) {
      console.log(myData);
       
       var date = myData[0].Date;
-      var steel_pct_change = myData[0].Steel_Percent_Change;
-      var lumber_pct_change = myData[0].Lumber_Percent_Change;
+      var steel_index = myData[0].Steel_Price_Index;
+      var lumber_index = myData[0].Lumber_Price_Index;
 
       var trace1 = {
         x: date,
-        y: steel_pct_change,
+        y: steel_index,
         type: "scatter",
         mode: 'lines+markers',
         name: 'Steel'
@@ -53,16 +20,17 @@ function buildCommoditiesPlot() {
       
       var trace2 = {
         x: date,
-        y: lumber_pct_change,
+        y: lumber_index,
         type: "scatter",
         mode: 'lines+markers',
-        name: 'Lumber'
+        name: 'Lumber',
+        color: 'red' 
       };
       
       var data = [trace1, trace2];
   
       var layout = {
-          title: "Steel & Lumber Percent Change in Price Index over Time", 
+          title: "Steel & Lumber Price Index Change over Time", 
       }
       
   
@@ -74,21 +42,22 @@ buildCommoditiesPlot();
 
 //monthly ratio for sales to sold
 
-function buildareaPlot() {
+function buildhousesupplyPlot() {
 
-  const url = "/api/monthly_house_supply";
+  const url = "/api/housing_data";
   d3.json(url).then(function(myData) {
    console.log(myData);
     
     var date = myData[0].Date;
     
-    var ratio = myData[0].Ratio_of_Sale_Sold;
+    var ratio = myData[0].House_Supply;
    
 
     var trace1 = {
     x: date,
     y: ratio,
-    type: "area"
+    type: "area",
+    color: "purple"
     
     }
     var data = [trace1];
@@ -103,15 +72,15 @@ function buildareaPlot() {
 })
 };
 
-buildareaPlot();
+buildhousesupplyPlot();
 
 // Homeownership Rate Radial Chart
 function RadialChart() {
 
-  const url = "/api/homeownership_rate";
+  const url = "/api/housing_data";
   d3.json(url).then(function (d) {
       console.log("Homeownership Rate API", d);
-      var homeownership_rate = d[0].Home_Ownership_Rate;
+      var homeownership_rate = d[0].Homeownership_Rate;
       console.log("Homeownership Rate Array", homeownership_rate);
 
       var options = {
@@ -162,38 +131,32 @@ RadialChart();
 //Construction Permits Spline
 function PermitsSpline() {
 
-  const url = "/api/home_units";
+  const url = "/api/housing_data";
   d3.json(url).then(function (d) {
       console.log("Home Units API", d);
       var date = d[0].Date;
-      console.log("Date", date);
-      var new_permits_thousands = d[0].new_permits_thousands;
-      console.log("new_permits_thousands", new_permits_thousands);
-      var units_not_started_thousands = d[0].units_not_started_thousands;
-      console.log("units_not_started_thousands", units_not_started_thousands);
-      var units_started_thousands = d[0].units_started_thousands;
-      console.log("units_started_thousands", units_started_thousands);
-      var units_under_construction_thousands = d[0].units_under_construction_thousands;
-      console.log("units_under_construction_thousands", units_under_construction_thousands);
-      var units_constructed_thousands = d[0].units_constructed_thousands;
-      console.log("units_constructed_thousands", units_constructed_thousands);
+      var new_permits = d[0].New_Housing_Permits;
+      var units_not_started = d[0].Units_Authorized_not_Started;
+      var units_started = d[0].Units_Authorized_Started;
+      var units_under_construction = d[0].Under_Construction;
+      var units_constructed = d[0].Units_Completed;
 
       var options = {
           series: [{
               name: 'New Housing Permits',
-              data: new_permits_thousands
+              data: new_permits
           }, {
               name: 'Housing Units Not Started',
-              data: units_not_started_thousands
+              data: units_not_started
           }, {
               name: 'Housing Units Started',
-              data: units_started_thousands
+              data: units_started
           }, {
               name: 'Housing Units Under Construction',
-              data: units_under_construction_thousands
+              data: units_under_construction
           }, {
               name: 'Housing Units Constructed',
-              data: units_constructed_thousands
+              data: units_constructed
           }],
           chart: {
               height: 400,
@@ -228,3 +191,64 @@ function PermitsSpline() {
 };
 
 PermitsSpline();
+
+// Interest Rate
+
+function buildmixedPlot() {
+    
+    const url = "/api/housing_data";
+    d3.json(url).then(function (d) {
+      
+        var date = myData[0].Date;
+        var rate = myData[0].Interest_Rate;
+        var price = myData[0].Average_Home_Price;
+
+        var options = {
+            series: [{
+            name: 'Average Home Price',
+            type: 'column',
+            data: price
+        }, {
+            name: 'Interest Rate',
+            type: 'line',
+            data: rate
+        }],
+            chart: {
+            height: 350,
+            type: 'line',
+        },
+        stroke: {
+            width: [0, 4]
+        },
+        title: {
+            text: 'History of Home price & Interest Rates'
+        },
+        dataLabels: {
+            enabled: true,
+            enabledOnSeries: [1]
+        },
+        labels: date,
+        xaxis: {
+            categories: date,
+              title: {
+                  text: 'Date'
+              }
+        },
+        yaxis: [{
+            title: {
+            text: 'Avg Home Price',
+            },
+        
+        }, {
+            opposite: true,
+            title: {
+            text: 'Interest Rate'
+            }
+        }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#line"), options);
+        chart.render();
+    });
+};
+buildmixedPlot();
