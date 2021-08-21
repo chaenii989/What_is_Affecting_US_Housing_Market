@@ -108,5 +108,29 @@ def home_data():
 def home():
     return render_template("index.html")
 
+@app.route("/forecast")
+def forecast():
+    return render_template("forecast.html")
+
+@app.route("/materials")
+def materials():
+    return render_template("materials.html")
+
+@app.route("/permit")
+def permit():
+    return render_template("permit.html")
+
+@app.route("/rates")
+def rates():
+    return render_template("rates.html")
+
+@app.route("/supply")
+def supply():
+    return render_template("supply.html")
+
+@app.route("/tableau")
+def tableau():
+    return render_template("tableau.html")
+
 if __name__ == "__main__":
     app.run()
