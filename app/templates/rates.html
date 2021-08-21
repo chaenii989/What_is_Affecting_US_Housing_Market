@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rates</title>
+        <!---CSS--->
+        <link rel="stylesheet" href="../static/css/style.css" />
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--APEX Charts-->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    
+    <!-- Jumbotron -->
+    <div class="container-fluid">
+        <div class="jumbotron text-center" id="jumbotron">
+            <h3 class="display-4">What Is Affecting The Housing Market?</h3>
+            <p class="lead">Use the interactive charts below to explore the datasets.</p>
+        </div>
+    </div>
+        <!-- Navigation bar-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="/">US Housing Market Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Factors
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/materials">Construction Materials</a>
+                                <a class="dropdown-item" href="/permit">Housing Permits & Units Constructed</a>
+                                <a class="dropdown-item" href="/rates">Rates</a>
+                                <a class="dropdown-item" href="/supply">House Supply</a>
+                            </div>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/tableau">Tableau</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/forecast">Forecast</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="container-fluid">
+        <!-- Home Price -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="line"></div>
+            </div>
+            <!-- Interest rates -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="interest"></div>
+                </div>
+            </div>
+            <!---Homeownership Rate Radial Chart--->
+            <div class="col-md-3">
+                <div id="homeownership"></div>
+            </div>
+            
+        </div>
+        
+        <!--D3-->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <!--plotly-->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <!--Math.js Library-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.1.0/math.min.js"></script>
+        <!--javaScript-->
+        <script src="../static/js/app.js"></script>
+        <!--Bootstrap Bundle Script-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>
