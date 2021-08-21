@@ -55,22 +55,21 @@ def home_data():
     # Create our session (link) from Python to the DB
     session = Session(engine)
     # Query the database and send the jsonified results
-    results = session.query(Housing_data.date, Housing_data.interest_rate, Housing_data.units_authorized_not_started, Housing_data.units_authorized_started, Housing_data.avg_home_price, 
+    results = session.query(Housing_data.date, Housing_data.interest_rate, Housing_data.units_authorized_started, Housing_data.avg_home_price, 
     Housing_data.homeownership_rate, Housing_data.lumber_price_index, Housing_data.house_supply, Housing_data.new_housing_permits, Housing_data.steel_price_index, Housing_data.under_construction, Housing_data.units_completed
     ).all()
 
     date = [result[0] for result in results]
     interest_rate = [result[1] for result in results]
-    units_authorized_not_started = [result[2] for result in results]
-    units_authorized_started = [result[3] for result in results]
-    avg_home_price = [result[4] for result in results]
-    homeownership_rate = [result[5] for result in results]
-    lumber_price_index = [result[6] for result in results]
-    house_supply = [result[7] for result in results]
-    new_housing_permits = [result[8] for result in results]
-    steel_price_index = [result[9] for result in results]
-    under_construction = [result[10] for result in results]
-    units_completed = [result[11] for result in results]
+    units_authorized_started = [result[2] for result in results]
+    avg_home_price = [result[3] for result in results]
+    homeownership_rate = [result[4] for result in results]
+    lumber_price_index = [result[5] for result in results]
+    house_supply = [result[6] for result in results]
+    new_housing_permits = [result[7] for result in results]
+    steel_price_index = [result[8] for result in results]
+    under_construction = [result[9] for result in results]
+    units_completed = [result[10] for result in results]
     
 
 
@@ -78,7 +77,6 @@ def home_data():
         
         "Date": date,
         "Interest_Rate": interest_rate,
-        "Units_Authorized_not_Started": units_authorized_not_started,
         "Units_Authorized_Started": units_authorized_started,
         "Average_Home_Price": avg_home_price,
         "Homeownership_Rate": homeownership_rate,

@@ -136,7 +136,6 @@ function PermitsSpline() {
       console.log("Home Units API", d);
       var date = d[0].Date;
       var new_permits = d[0].New_Housing_Permits;
-      var units_not_started = d[0].Units_Authorized_not_Started;
       var units_started = d[0].Units_Authorized_Started;
       var units_under_construction = d[0].Under_Construction;
       var units_constructed = d[0].Units_Completed;
@@ -145,9 +144,6 @@ function PermitsSpline() {
           series: [{
               name: 'New Housing Permits',
               data: new_permits
-          }, {
-              name: 'Housing Units Not Started',
-              data: units_not_started
           }, {
               name: 'Housing Units Started',
               data: units_started
@@ -227,12 +223,9 @@ function buildmixedPlot() {
             enabled: true,
             enabledOnSeries: [1]
         },
-        labels: date,
         xaxis: {
-            categories: date,
-              title: {
-                  text: 'Date'
-              }
+            type: 'datetime',
+            data: date
         },
         yaxis: [{
             title: {
