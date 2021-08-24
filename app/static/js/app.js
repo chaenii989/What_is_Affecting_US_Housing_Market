@@ -234,7 +234,7 @@ function buildmixedPlot() {
             }, {
                 opposite: true,
                 title: {
-                    text: 'Interest_Rate'
+                    text: 'Interest Rate'
                 }
             }]
         };
