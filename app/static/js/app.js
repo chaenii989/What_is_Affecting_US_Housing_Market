@@ -282,7 +282,7 @@ function HomeownershipBar() {
                 min: 0,
                 max: 100,
                 title: {
-                    text: 'Average Home Price',
+                    text: 'Homeownership Rate (%)',
                 }
             }
         }
