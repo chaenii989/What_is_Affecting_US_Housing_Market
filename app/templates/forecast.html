@@ -13,7 +13,6 @@
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
-    
     <!-- Jumbotron -->
     <div class="container-fluid">
         <div class="jumbotron text-center" id="jumbotron">
@@ -58,33 +57,94 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="forecast">
-                <img src="../static/images/rf_seaborn_heatmap.png"></img>
-                <img src="../static/images/rf_seaborn_heatmap_2.png"></img>
+                    <img src="../static/images/rf_seaborn_heatmap.png"></img>
+                    <img src="../static/images/rf_seaborn_heatmap_2.png"></img>
                 </div>
             </div>
         </div>
-        
-        <!--D3-->
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <!--plotly-->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <!--Math.js Library-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.1.0/math.min.js"></script>
-        <!--javaScript-->
-        <script src="../static/js/app.js"></script>
-        <!--Bootstrap Bundle Script-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-            crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
     </div>
+    <!-- ML Regression-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Multivariate Linear Regresssion on Time-Series Data with Machine Learning</h3>
+                <p>
+                    Prediction of average house price from 1990 to 2021.<br>
+                    R2 Score: 0.9915267525981379<br>
+                    Training Score: 0.9922490753155899<br>
+                    Testing Score: 0.9830009095706425<br>
+
+                    <br>Predictions:<br>
+                    Actual Output: [347500.]<br>
+                    Predicted Output: [350503.97356237]<br>
+                    Prediction Error: [3003.97356237]<br>
+                    Max Prediction Error: [13057.19520935]<br>
+                    Min Prediction Error: [-31281.07004205]
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="../../machine_learning_output/residuals_plot_ml_multivariate_linear_regression.png"
+                    alt="residuals_plot_ml_multivariate_linear_regression" id="ml-residualplot" class="img-fluid" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../../machine_learning_output/line_plot_ml_multivariate_linear_regression.png"
+                    alt="line_plot_ml_multivariate_linear_regression" id="ml-lineplot" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+    <!-- Predicted ML Table-->
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table border="1" class="dataframe table table-hover" id="predictedTable">
+                <thead>
+                    <tr style="text-align: right;">
+                        <th>Index</th>
+                        <th>date</th>
+                        <th>interest_rate</th>
+                        <th>units_authorized_started</th>
+                        <th>avg_home_price</th>
+                        <th>homeownership_rate</th>
+                        <th>lumber_price_index</th>
+                        <th>house_supply</th>
+                        <th>new_housing_permits</th>
+                        <th>steel_price_index</th>
+                        <th>under_construction</th>
+                        <th>units_completed</th>
+                        <th>y_actual_output</th>
+                        <th>predicted</th>
+                        <th>error</th>
+                    </tr>
+                </thead>
+                </thead>
+                <tbody>
+                    Table data belongs here.
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--D3-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--plotly-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--Math.js Library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.1.0/math.min.js"></script>
+    <!--javaScript-->
+    <script src="../static/js/app.js"></script>
+    <!--Bootstrap Bundle Script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>
