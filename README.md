@@ -177,7 +177,7 @@ We used the merged housing DataFrame from 1/1/1990 to 1/1/2021 and the scikit-le
 
 We classified high & low average home prices as the target outcome (based on median due to skewness to the right).  
 
-**Feature imporances** were as follows:
+**Feature importances** were as follows:
 ----------------------------------------
 Attribute|Feature Importance
 ---------|------------------
