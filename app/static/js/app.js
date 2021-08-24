@@ -85,10 +85,10 @@ function RadialChart() {
 
       var options = {
           chart: {
-              height: 280,
+              height: 250,
               type: "radialBar"
           },
-          series: [homeownership_rate[4]],
+          series: [homeownership_rate[125]],
           plotOptions: {
               radialBar: {
                   hollow: {
@@ -188,60 +188,109 @@ function PermitsSpline() {
 
 PermitsSpline();
 
-// Interest Rate
-
+// Line Column Mixed Chart
 function buildmixedPlot() {
-    
+
     const url = "/api/housing_data";
-    d3.json(url).then(function (d) {
-      
+    d3.json(url).then(function (myData) {
+
         var date = myData[0].Date;
         var rate = myData[0].Interest_Rate;
         var price = myData[0].Average_Home_Price;
 
         var options = {
             series: [{
-            name: 'Average Home Price',
-            type: 'column',
-            data: price
-        }, {
-            name: 'Interest Rate',
-            type: 'line',
-            data: rate
-        }],
+                name: 'Average Home Price',
+                type: 'column',
+                data: price
+            }, {
+                name: 'Interest Rate',
+                type: 'line',
+                data: rate
+            }],
             chart: {
-            height: 350,
-            type: 'line',
-        },
-        stroke: {
-            width: [0, 4]
-        },
-        title: {
-            text: 'History of Home price & Interest Rates'
-        },
-        dataLabels: {
-            enabled: true,
-            enabledOnSeries: [1]
-        },
-        xaxis: {
-            type: 'datetime',
-            data: date
-        },
-        yaxis: [{
-            title: {
-            text: 'Avg Home Price',
+                height: 400,
+                type: 'line',
             },
-        
-        }, {
-            opposite: true,
+            stroke: {
+                width: [0, 4]
+            },
             title: {
-            text: 'Interest Rate'
-            }
-        }]
+                text: 'History of Home price & Interest Rates'
+            },
+            dataLabels: {
+                enabled: true,
+                enabledOnSeries: [1]
+            },
+            labels: date,
+            xaxis: {
+                type: 'datetime'
+            },
+            yaxis: [{
+                title: {
+                    text: 'Average Home Price',
+                },
+
+            }, {
+                opposite: true,
+                title: {
+                    text: 'Interest Rate'
+                }
+            }]
         };
 
-        var chart = new ApexCharts(document.querySelector("#line"), options);
+        var chart = new ApexCharts(document.querySelector("#linecolumn"), options);
         chart.render();
     });
 };
+
 buildmixedPlot();
+
+// Bar Chart: Homeownership Rate
+
+function HomeownershipBar() {
+
+    const url = "/api/housing_data";
+    d3.json(url).then(function (myData) {
+
+        var date = myData[0].Date;
+        var homeownership_rate = myData[0].Homeownership_Rate;
+
+        var options = {
+            chart: {
+                height: 300,
+                type: 'bar'
+            },
+            series: [{
+                name: 'Homeownership Rate',
+                data: homeownership_rate
+            }],
+            title: {
+                text: 'Homeownership Rate'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            labels: date,
+            xaxis: {
+                categories: date,
+                title: {
+                    text: 'Date',
+                }
+            },
+            yaxis: {
+                min: 0,
+                max: 100,
+                title: {
+                    text: 'Homeownership Rate (%)',
+                }
+            }
+        }
+
+        var chart = new ApexCharts(document.querySelector("#HomeownershipBar"), options);
+
+        chart.render();
+    });
+}
+
+HomeownershipBar();
