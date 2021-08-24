@@ -85,10 +85,10 @@ function RadialChart() {
 
       var options = {
           chart: {
-              height: 280,
+              height: 250,
               type: "radialBar"
           },
-          series: [homeownership_rate[4]],
+          series: [homeownership_rate[125]],
           plotOptions: {
               radialBar: {
                   hollow: {
