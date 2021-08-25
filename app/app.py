@@ -44,9 +44,6 @@ Housing_data = Base.classes.housing_data
 
 
 
-
-#from .models import Pet
-
 #################################################
 # API Routes (start with '/api/')
 #################################################
