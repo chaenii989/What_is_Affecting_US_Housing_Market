@@ -149,5 +149,64 @@ U.S. Bureau of Labor Statistics, Producer Price Index by Commodity: Metals and M
 Citation:
 U.S. Department of the Treasury, Daily Treasury Yield Curve Rates, retrieved from U.S. Department of the Treasury, Resource Center;<https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=yieldYear&year=2020>, July 30, 2021.
 
+## Data Cleaning
+Data cleaning for this project was done in a jupyter notebook using pandas.
+
+Main approaches were:
+ - reading .csv files
+ - cleaning each dataset individually
+    * `df.dtypes` to view column data types and convert as necessary `df.astype()`
+    * `df.rename()` to rename columns
+    * `df.drop()` to drop bad records (data that doesn't fit such as a random ".")
+    * `df.round()` to round to a specific number of decimal places
+    * `df.isnull().values.any()` to check for any null values in a DataFrame
+- merge all .csv files by creating a list of the DataFrame names, then use the pandas merge function
+`pd.merge()`
+- check data types **again** in the new DataFrame
+- `df.sort_values()` to sort by date ascensing
+- save the merged DataFrame to a .csv in the etl folder
+
+## Random Forest Classification Model
+
+We used a random forest classification machine learning model to investigate the following:
+***Forecasting whether average home price is going to be driven up or down (high/low) based on other factors.***
+
+We are ***forecasting*** with this model, these are the trends we expect (with class as our outcome).
+
+We used the merged housing DataFrame from 1/1/1990 to 1/1/2021 and the scikit-learn library `RandomForestClassifier`. 
+
+We classified high & low average home prices as the target outcome (based on median due to skewness to the right).  
+
+**Feature importance values** were as follows:
+----------------------------------------
+Attribute|Feature Importance
+---------|------------------
+steel_price_index|0.502325
+interest_rate|0.197493
+under_construction|0.067446
+units_authorized_started|0.062773
+units_completed|0.051886
+lumber_price_index|0.050106
+new_housing_permits|0.033157
+house_supply|0.019893
+homeownership_rate|0.014920
+
+
+**Seaborn** heatmaps were then obtained using `sns.heatmap()` to get a better picture of the correlations.
+
+See the following images: 
+* [Random Forest Overall Housing Data Heatmap](https://github.com/chaenii989/Final_Project_What_is_Affecting_US_Housing_Market/blob/main/app/static/images/rf_seaborn_heatmap.png)
+    - This image shows a heat map across all variables in the combined housing dataset.
+    - Key findings: 
+        - Steel price index and average home price are strongly (positively) correlated.
+        - Units authorized (started) is strongly correlated with units completed.
+        - New housing permits and units completed are strongly correlated.
+        - New housing permits and units under construction are strongly correlated.
+
+* [Random Forest Heatmap, Average Home Price Target](https://github.com/chaenii989/Final_Project_What_is_Affecting_US_Housing_Market/blob/main/app/static/images/rf_seaborn_heatmap_2.png)
+    - Key finding: 
+        - Steel price index is more positively correlated to avg home price (0.8) than lumber price index is to avg home price (0.58).
+        - Steel price index is more correlated to average home price than any of the other housing factors explored.
+
 ## Contributors
 Amanda Pesch, Chloe Lee, David W. Mueller, John Burke, Jordan Cizmja, Rna Babikar.

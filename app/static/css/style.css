@@ -65,3 +65,7 @@ background-color:white;
 
 }
 
+#forecast img {
+  height:80%;
+  width:80%;
+}
