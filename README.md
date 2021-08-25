@@ -79,40 +79,39 @@ See the following images:
         - Steel price index is more correlated to average home price than any of the other housing factors explored.
  
 ## Multivariate Linear Regression on Time-Series Data with Machine Learning
- 
-## Prediction of Average House Price
- 
-![line_plot_ml_multivariate_linear_regression](app/static/images/line_plot_ml_multivariate_linear_regression.png)
- 
-- Predicting average home price with interest rates, homeownership rate, steel and lumber index, house supply, housing permits authorized, housing units under construction and constructed.
+
+- Predicting average home price with interest rates, housing unit construction started, homeownership rate, lumber price index, house supply, new housing permits authorized, steel price index, housing units under construction and constructed.
 - Model trained and tested on quarterly data from 1990 to 2021.
--[Results](machine_learning_output/results_ml_multivariate_linear_regression.txt)
-  - Scores:
-    - R2 Score: 0.9915267525981379
-    - Training Score: 0.9922490753155899
-    - Testing Score: 0.9830009095706425
-  - Values:
-    - Weight Coefficients: [[-4.45009651e+03  5.08872972e+00  8.79046007e-01 -1.76062831e+03
-  -2.07161593e+02 -1.16569138e+03 -4.43569044e+00  7.62715275e+01
-   3.15679748e+00  1.14186153e+01]]
-    - Y-Axis Intercept: [162220.11225813]
-    - Min X Value: [[[2.7600e+00 5.2600e+02 1.1700e+05 6.3100e+01 5.1380e+01 4.0000e+00
-   5.3900e+02 1.0783e+02 4.1600e+02 5.5900e+02]]]
-    - Max X Value: [[[1.0320e+01 2.1200e+03 3.5870e+05 6.9400e+01 1.4759e+02 1.1000e+01
-   2.2280e+03 2.8717e+02 1.4230e+03 2.1100e+03]]]
-  - Predictions:
-    - Actual Output: [347500.]
-    - Predicted Output: [350503.97356237]
-    - Prediction Error: [3003.97356237]
-    - Max Prediction Error: [13057.19520935]
-    - Min Prediction Error: [-31281.07004205]
- 
+
+## Prediction of Average Home Price
+
+![line_plot_ml_multivariate_linear_regression](app/static/images/line_plot_ml_multivariate_linear_regression.png)
+
+### [Results](machine_learning_output/results_ml_multivariate_linear_regression.txt)
+
+- Scores:
+  - R2 Score: 0.9759803211622585
+  - Training Score: 0.9737840620637132
+  - Testing Score: 0.9787881279050938
+
+- Features:
+  - Weight coefficients: [-1.75035299e+04, -7.05863389e+01, -3.05670596e+03, -1.02152948e+01,
+    -6.36429120e+03,  6.30851833e-01,  2.92284833e+02,  2.10778383e+02, -3.14356886e+01]
+  - Y-Axis Intercept: [451413.83352829]
+  - Min X Value: [2.76, 526, 63.1, 51.38, 4, 539, 107.83, 416, 559]
+  - Max X Value: [10.32, 2120, 69.4, 147.59, 11, 2228, 287.17, 1423, 2110]
+
+- Predictions:
+  - Actual Output: [347500]
+  - Predicted Output: [349304.18131732]
+  - Prediction Error: [1804.18131732]
+  - Max Prediction Error: [26488.53383156]
+  - Min Prediction Error: [-20923.00820813]
+
 ## Residuals Plot
- 
-![line_plot_ml_multivariate_linear_regression](app/static/images/residuals_plot_ml_multivariate_linear_regression.png)
- 
-- Prediction error increases over time, perhaps with the increased volatility due to Covid-19.
- 
+
+![residuals_plot_ml_multivariate_linear_regression](app/static/images/residuals_plot_ml_multivariate_linear_regression.png)
+
 ## Data Sources & Datasets
  
 [Federal Reserve Economic Data (FRED) Housing](https://fred.stlouisfed.org/categories/97)
