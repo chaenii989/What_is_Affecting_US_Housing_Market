@@ -30,12 +30,16 @@ function buildCommoditiesPlot() {
       var data = [trace1, trace2];
   
       var layout = {
-          title: "Steel & Lumber Price Index Change over Time", 
-      }
-      
-  
+          title: "Steel & Lumber Price Index Change over Time",
+          xaxis: {
+            title: 'Year'
+            },
+          yaxis: {
+            title: 'Price Index'
+            },
+          };
       Plotly.newPlot("commodities", data, layout);
-  })
+    })
 };
   
 buildCommoditiesPlot();
@@ -64,12 +68,19 @@ function buildhousesupplyPlot() {
     
 
     var layout = {
-        title: "Ratio for Sales to Sold", 
-    }
+        title: "Houses for Sale per One House Sold",
+        xaxis: {
+            title: 'Year'
+            },
+          yaxis: {
+            title: 'Ratio of Houses for Sale per One House Sold'
+        },
+    };
+
     
 
     Plotly.newPlot("area", data, layout);
-})
+    })
 };
 
 buildhousesupplyPlot();
